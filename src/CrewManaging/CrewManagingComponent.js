@@ -9,9 +9,10 @@ export const SELECT_COURSE_MARKUP = `
       <input id="backend-course" type="radio" name="course" value="backend" />
       <label for="backend">백엔드</label>
     </div>
-  </section>`;
+  </section>
+  <section id="managing-crew"></section></main>`;
 
-export const MANAGING_CREW_MARKUP = (course) => `<section>
+export const MANAGING_CREW_MARKUP = (course) => `
 <h3>${course} 크루 관리</h3>
 <form>
   <label>크루 이름</label>
@@ -30,14 +31,14 @@ export const MANAGING_CREW_MARKUP = (course) => `<section>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>준</td>
-      <td>
-        <button class="delete-crew-button">삭제</button>
-      </td>
-    </tr>
   </tbody>
 </table>
-</section>
-</main>`;
+`;
+
+export const CREW_TABLE = (crewName, index) => `<tr>
+<td>${index}</td>
+<td>${crewName}</td>
+<td>
+  <button class="delete-crew-button">삭제</button>
+</td>
+</tr>`;
