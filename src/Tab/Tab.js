@@ -6,8 +6,6 @@ import { MANAGING_TEAM_MATCHING_MARKUP } from '../TeamMatching/TeamMatchingCompo
 class Tab {
   initTab() {
     $('body').insertAdjacentHTML('beforebegin', HEADER_MARKUP);
-    $('#crew-tab').addEventListener('click', this.toggleManageCrewTab);
-    $('#team-tab').addEventListener('click', this.toggleManageTeamTab);
   }
 
   toggleManageCrewTab() {
