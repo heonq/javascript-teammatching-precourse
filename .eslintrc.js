@@ -4,36 +4,37 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ["airbnb", "prettier"],
+  extends: ['airbnb', 'prettier'],
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [".eslintrc.{js,cjs}"],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
-        sourceType: "script",
+        sourceType: 'script',
       },
     },
 
     {
-      files: ["test/**/*.js"],
+      files: ['test/**/*.js'],
       rules: {
-        "max-lines-per-function": "off",
-        "no-new": "off",
+        'max-lines-per-function': 'off',
+        'no-new': 'off',
       },
     },
   ],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
   rules: {
-    "import/extensions": "off",
-    "class-methods-use-this": "off",
-    "no-process-exit": "error",
-    "max-depth": ["error", 2],
-    "max-lines-per-function": ["error", 15],
-    "no-unused-vars": "off",
+    'no-undef': 'off',
+    'import/extensions': 'off',
+    'class-methods-use-this': 'off',
+    'no-process-exit': 'error',
+    'max-depth': ['error', 2],
+    'max-lines-per-function': ['error', 15],
+    'no-unused-vars': 'off',
   },
 };
