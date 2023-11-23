@@ -20,7 +20,26 @@ class Controller {
   }
 
   initCrewManaging() {
-    $('body').addEventListener('click', (e) => this.crewManaging.selectCourse(e));
+    $('body').addEventListener('click', (e) => {
+      if (e.target.id === 'frontend-course' || e.target.id === 'backend-course') {
+        this.crewManaging.selectCourse(e);
+        this.initCrewInput();
+        this.preventFormDefault();
+      }
+    });
+  }
+
+  initCrewInput() {
+    $('#add-crew-button').addEventListener(
+      'click',
+      this.crewManaging.addCrew.bind(this.crewManaging),
+    );
+  }
+
+  preventFormDefault() {
+    document
+      .querySelectorAll('form')
+      .forEach((form) => form.addEventListener('submit', (e) => e.preventDefault()));
   }
 }
 
