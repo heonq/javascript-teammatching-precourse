@@ -34,11 +34,19 @@ class CrewManaging {
 
   addCrew() {
     const crewName = $('#crew-name-input').value;
-    const previousCrews = Store.getItem(this.#currentCourse) ?? [];
+    const previousCrews = this.getCrewFromStore() ?? [];
     $('#crew-name-input').value = '';
     if (!Validator.vlaidateCrewName(crewName, previousCrews)) return;
     Store.setItem(this.#currentCourse, [...previousCrews, crewName]);
     this.printCourseCrew(this.#currentCourse);
+  }
+
+  getCrewFromStore() {
+    return Store.getItem(this.#currentCourse);
+  }
+
+  setCrewToStore(crewNames) {
+    Store.setItem(this.#currentCourse, crewNames);
   }
 }
 
