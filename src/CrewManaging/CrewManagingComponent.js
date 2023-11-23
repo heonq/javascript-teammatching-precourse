@@ -37,7 +37,7 @@ export const MANAGING_CREW_MARKUP = (course) => `
 
 export const CREW_TABLE = (crewName, index) => `<tr>
 <td>${index}</td>
-<td>${crewName}</td>
+<td class='crew-name'>${crewName}</td>
 <td>
   <button class="delete-crew-button">삭제</button>
 </td>

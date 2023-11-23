@@ -1,3 +1,6 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-restricted-globals */
+
 import { MANAGING_CREW_MARKUP, CREW_TABLE } from './CrewManagingComponent.js';
 import $ from '../../utils/querySelector.js';
 import Store from '../../utils/Store.js';
@@ -47,6 +50,15 @@ class CrewManaging {
 
   setCrewToStore(crewNames) {
     Store.setItem(this.#currentCourse, crewNames);
+  }
+
+  deleteCrew(e) {
+    if (!confirm('크루를 삭제하시겠습니까?')) return;
+    const target = e.target.closest('tr').querySelector('.crew-name').innerText;
+    const currentCrew = this.getCrewFromStore();
+    currentCrew.splice(currentCrew.indexOf(target), 1);
+    this.setCrewToStore(currentCrew);
+    this.printCourseCrew(this.#currentCourse);
   }
 }
 
