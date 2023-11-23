@@ -25,6 +25,7 @@ class Controller {
         this.crewManaging.selectCourse(e);
         this.initCrewInput();
         this.preventFormDefault();
+        this.initDeleteButton();
       }
     });
   }
@@ -34,6 +35,14 @@ class Controller {
       'click',
       this.crewManaging.addCrew.bind(this.crewManaging),
     );
+  }
+
+  initDeleteButton() {
+    $('#crew-table').addEventListener('click', (e) => {
+      if (e.target.classList.contains('delete-crew-button')) {
+        this.crewManaging.deleteCrew(e);
+      }
+    });
   }
 
   preventFormDefault() {
